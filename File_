@@ -1,0 +1,67 @@
+package File_Handling;
+import java.io.*;
+import java.util.Scanner;
+public class File_ {
+		String s1,s2,f;//declared the variable........
+	  Scanner sc = new Scanner(System.in); //using the scanner.........
+	  public void create_file()throws IOException {
+	  System.out.print("Enter the file name:");//the input from  user.........
+	  f=sc.nextLine(); 
+	  File f1 = new File("D:\\filemaking\\");//create the file .......
+	  f1.createNewFile();
+	  System.out.println("The file name is:"+f);
+	  System.out.println("File is succesfully Created"); 
+	  }
+	  
+	  public void write_File()throws IOException {
+	  System.out.println("\n for Write");
+	  System.out.print(" Enter the file name:");//get the inpt from user........
+	  f=sc.nextLine(); 
+	  File f1 = new File("D:\\filemaking\\"+f); 
+	  FileWriter fw1=new FileWriter(f1);//write the internal part of the file.........
+	  System.out.println("Enter your string"); 
+	  s2=sc.nextLine(); 
+	  fw1.write(s2);
+	  fw1.close();//this for the close.....
+	  System.out.println("Data  stored in your file. Done"); 
+	  }
+	  
+	  public void read_file() throws IOException { use the io exception
+	  System.out.println("\n for Read");
+	  System.out.print(" Enter the file name:"); //get the input from user.........
+	  f=sc.nextLine();
+	  File f1=new File("D:\\filemaking\\"+f);
+	  FileReader fr=new FileReader(f1); //read the internal part of the file.....
+	  try {//use try block.......
+		  int i = 0;
+		  while((i=fr.read())!=-1) {//using while loop......
+			  System.out.println((char)i);
+		  }
+	  }
+	  finally {//use finnally block........
+		  fr.close();//this for the close.....
+		  System.out.print("Data");
+	  }
+	  }
+	  
+	  public void del_file() { //delete operation.......
+			  System.out.println("\n for Delete.");
+			  System.out.print(" Enter the file name:");//get the input from user. 
+        f=sc.nextLine();
+			  File f1=new File("D:\\filemaking\\");
+		  f1.delete();
+	  
+	  System.out.println("File is Deleted");
+	  }
+	  public static void main(String[]args) throws IOException {//main method...........
+		  File_ ob = new File_(); //create the object  of the class.........
+			//call the methods...........
+			  ob.create_file(); 
+        ob.write_File(); 
+        ob.read_file();
+			 ob.del_file();
+	  
+	  }
+	  }
+	  
+	 
